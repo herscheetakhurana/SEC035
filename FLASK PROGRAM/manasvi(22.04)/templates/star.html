@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cat vs Dog Voting App</title>
+</head>
+<body>
+    <h2>Vote for your favorite:</h2>
+    <button onclick="castVote('cats')">Vote Cats 🐱</button>
+    <button onclick="castVote('dogs')">Vote Dogs 🐶</button>
+
+    <h3>Results:</h3>
+    <p>Cats: <span id="catsCount">0</span></p>
+    <p>Dogs: <span id="dogsCount">0</span></p>
+
+    <script>
+        async function fetchResults() {
+            const res = await fetch('/results');
+            const data = await res.json();
+            document.getElementById('catsCount').innerText = data.cats;
+            document.getElementById('dogsCount').innerText = data.dogs;
+        }
+
+        async function castVote(choice) {
+            const res = await fetch('/vote', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({vote: choice})
+            });
+            const data = await res.json();
+            document.getElementById('catsCount').innerText = data.cats;
+            document.getElementById('dogsCount').innerText = data.dogs;
+        }
+
+        // Load initial vote results on page load
+        fetchResults();
+    </script>
+</body>
+</html>
