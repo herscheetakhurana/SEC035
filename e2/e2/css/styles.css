@@ -1,0 +1,196 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(#ffafbd → #ffc3a0)
+    margin: 0;
+    padding: 0;
+}
+div {
+    background: linear-gradient() #33ccff 0%, #9966ff 100%);
+}
+/* Navbar Styling */
+.navbar {
+    background-color: #333;
+}
+
+.navbar .navbar-brand {
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.navbar .nav-link {
+    font-size: 1rem;
+    color: white !important;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('images/hero-bg.jpg'); /* Add your hero image path here */
+    background-size: cover;  /* Ensures the background covers the full section */
+    background-position: center; /* Center the image */
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out; /* Optional animation for fade-in effect */
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: slideInLeft 1.5s ease-out;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    animation: slideInLeft 1.5s ease-out;
+}
+
+.hero a {
+    font-size: 1.2rem;
+    padding: 12px 25px;
+    background-color: #ff9900;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.hero a:hover {
+    background-color: #e68a00;
+}
+
+/* Product Section */
+#products {
+    background-image: url('images/product-bg.jpg'); /* Add your product section background image */
+    background-size: cover;
+    background-position: center;
+    padding: 60px 0;
+    text-align: center;
+    color: white;
+    animation: fadeInUp 1.5s ease-in-out; /* Optional animation for fade-in effect */
+}
+
+#products h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* Product Cards */
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.card-text {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Cart Section (Placeholder for now) */
+#cart {
+    background-color: #fff;
+    padding: 60px 0;
+    text-align: center;
+    min-height: 300px;
+}
+
+#cart p {
+    font-size: 1.2rem;
+}
+
+/* Footer */
+footer {
+    background-image: url('images/footer-bg.jpg'); /* Add your footer background image */
+    background-size: cover;
+    background-position: center;
+    padding: 40px 0;
+    text-align: center;
+    color: white;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+    0% { opacity: 0; transform: translateX(-30px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    #products h2 {
+        font-size: 2rem;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .card-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .hero a {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .card-title {
+        font-size: 1rem;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+    }
+}
