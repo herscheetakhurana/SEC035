@@ -1,0 +1,36 @@
+<div id="dragBox" draggable="true">Drag Me</div>
+<div id="dropZone">Drop Here</div>
+<script>
+  const dragBox = document.getElementById("dragBox");
+  const dropZone = document.getElementById("dropZone");
+  dragBox.addEventListener("dragstart", (e) => {
+    e.dataTransfer.setData("text", "dragBox");
+  });
+  dropZone.addEventListener("dragover", (e) => e.preventDefault());
+  dropZone.addEventListener("drop", (e) => {
+    e.preventDefault();
+    dropZone.appendChild(dragBox);
+    dropZone.style.backgroundColor = "lightgreen";
+  });
+</script>
+<style>
+  #dragBox {
+    width: 100px;
+    height: 100px;
+    background: rgb(157, 255, 0);
+    color: rgb(36, 166, 170);
+    text-align: center;
+    line-height: 100px;
+    cursor: grab;
+  }
+
+  #dropZone {
+    width: 200px;
+    height: 200px;
+    border: 2px dashed rgb(233, 26, 188);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+</style>

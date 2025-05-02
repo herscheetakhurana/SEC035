@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Web Notification</title>
+    <style>
+        /* Styling for the button and body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5e65c;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        #notifyButton {
+            background-color: #3498db;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #notifyButton:hover {
+            background-color: #2980b9;
+        }
+
+        /* Animation for the notification */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Click the Button to Receive a  Notification!</h1>
+<button id="notifyButton">Get  Notification</button>
+
+<script>
+    // Check if Notification API is supported
+    if ("Notification" in window) {
+        // Request permission for notifications
+        Notification.requestPermission().then(permission => {
+            console.log("Notification Permission: " + permission);
+        });
+    }
+
+    document.getElementById("notifyButton").addEventListener("click", function() {
+        if (Notification.permission === "granted") {
+            // Create a custom notification with sound, vibration, and images
+            const notification = new Notification("✨ You Have a New Notification! ✨", {
+                body: "Check out your new updates with a fun image!",
+                icon: "https://via.placeholder.com/100/3498db/ffffff?text=Creative", // Small Icon Image
+                image: "https://via.placeholder.com/300/ff6347/ffffff?text=Your+Update", // Large Image in notification
+                sound: "https://www.soundjay.com/button/beep-07.wav", // Notification sound
+                vibrate: [200, 100, 200], // Vibration pattern
+                tag: "creative-notification"
+            });
+
+            // Play sound on show
+            notification.addEventListener("show", () => {
+                const audio = new Audio("https://www.soundjay.com/button/beep-07.wav");
+                audio.play();
+            });
+
+            // Add animation for notification (if supported by browser)
+            notification.style.animation = "slideIn 0.5s ease-in-out";
+
+            // Handling click event on notification (redirect user when clicked)
+            notification.addEventListener("click", function() {
+                window.open("https://www.creative-ideas.com", "_blank");
+            });
+
+            // Optionally close notification after 5 seconds
+            setTimeout(() => {
+                notification.close();
+            }, 5000);
+
+        } else {
+            alert("Please allow notifications to receive updates.");
+        }
+    });
+</script>
+
+</body>
+</html>

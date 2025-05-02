@@ -1,0 +1,15 @@
+<img id="preview" src="image copy 3.png" width="300" alt="Preview Image">
+<div id="thumbnails">
+  <img src="image.png" width="100" alt="Thumbnail 1">
+  <img src="image copy.png" width="100" alt="Thumbnail 2">
+  <img src="image copy 2.png" width="100" alt="Thumbnail 3">
+</div>
+
+<script>
+ const preview = document.getElementById("preview");
+ document.getElementById("thumbnails").addEventListener("click", (e) => {
+ if (e.target.tagName === "IMG") {
+ preview.src = e.target.src;
+ }
+ });
+</script>
